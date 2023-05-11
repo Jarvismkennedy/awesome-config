@@ -5,7 +5,7 @@ local gears = require('gears')
 local dpi = require('beautiful').xresources.apply_dpi
 local theme = {}
 theme.icons = theme_dir .. '/icons/'
-theme.font = 'Roboto medium 10'
+theme.font = 'JetBrainsMono Nerd Font 10'
 
 -- Colors Pallets
 
@@ -22,10 +22,9 @@ local awesome_overrides =
   function(theme)
   theme.dir = os.getenv('HOME') .. '/.config/awesome/theme'
   theme.icons = theme.dir .. '/icons/'
-  --theme.wallpaper = theme.dir .. '/wallpapers/DarkCyan.png'
   theme.wallpaper = '#e0e0e0'
-  theme.font = 'Roboto medium 10'
-  theme.title_font = 'Roboto medium 14'
+  theme.font = 'JetBrainsMono Nerd Font 10'
+  theme.title_font = 'JetBrainsMono Nerd Font 10'
 
   theme.fg_normal = '#ffffffde'
 
