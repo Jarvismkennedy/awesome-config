@@ -17,6 +17,7 @@ local dracula = {
 }
 
 local theme = {}
+theme.dracula = dracula
 theme.icons = theme_dir .. "/icons/"
 theme.font = "JetBrainsMono Nerd Font 10"
 
