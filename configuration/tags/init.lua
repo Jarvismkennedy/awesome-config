@@ -4,35 +4,45 @@ local icons = require("theme.icons")
 local apps = require("configuration.apps")
 local theme = require("theme.dracula.theme")
 
-local unfocused = gears.color.recolor_image(icons.circles, theme.theme.dracula.purple)
+local dots = gears.color.recolor_image(icons.circles, theme.theme.dracula.orange)
+local ghost_purple = gears.color.recolor_image(icons.ghost, theme.theme.dracula.purple)
+local ghost_pink = gears.color.recolor_image(icons.ghost, theme.theme.dracula.pink)
+local ghost_cyan = gears.color.recolor_image(icons.ghost, theme.theme.dracula.cyan)
+local ghost_red = gears.color.recolor_image(icons.ghost, theme.theme.dracula.red)
+local ghost_yellow = gears.color.recolor_image(icons.ghost, theme.theme.dracula.orange)
+local ghosts = { ghost_purple, ghost_pink, ghost_cyan, ghost_red, ghost_yellow }
 local focused = gears.color.recolor_image(icons.pacman, theme.theme.dracula.yellow)
+
+local get_ghost = function(n)
+    return ghosts[n]
+end
 local tags = {
     {
         icon = focused,
-        type = "chrome",
+        type = "code",
+        defaultApp = apps.default.terminal,
+        screen = 1,
+    },
+    {
+        icon = get_ghost(2),
+        type = "web",
         defaultApp = apps.default.browser,
         screen = 1,
     },
     {
-        icon = unfocused,
-        type = "code",
-        defaultApp = apps.default.editor,
-        screen = 1,
-    },
-    {
-        icon = unfocused,
+        icon = get_ghost(3),
         type = "social",
         defaultApp = apps.default.social,
         screen = 1,
     },
     {
-        icon = unfocused,
-        type = "game",
-        defaultApp = apps.default.game,
+        icon = get_ghost(4),
+        type = "web",
+        defaultApp = apps.default.browser,
         screen = 1,
     },
     {
-        icon = unfocused,
+        icon = get_ghost(5),
         type = "files",
         defaultApp = apps.default.files,
         screen = 1,
@@ -41,6 +51,7 @@ local tags = {
 
 awful.layout.layouts = {
     awful.layout.suit.tile,
+    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.floating,
 }
@@ -59,11 +70,17 @@ awful.screen.connect_for_each_screen(function(s)
         })
     end
 end)
+
 _G.tag.connect_signal("property::selected", function(t)
     if t.selected then
         t.icon = focused
-    else
-        t.icon = unfocused
+        local taglist = awful.screen.focused().tags
+        for i = 1, tonumber(t.name) - 1 do
+            taglist[i].icon = dots
+        end
+        for i = tonumber(t.name) + 1, #taglist do
+            taglist[i].icon = get_ghost(i)
+        end
     end
 end)
 _G.tag.connect_signal("property::layout", function(t)

@@ -12,8 +12,8 @@ local globalKeys = awful.util.table.join(
     -- Hotkeys
     awful.key({ modkey }, "F1", hotkeys_popup.show_help, { description = "Show help", group = "awesome" }),
     -- Tag browsing
-    awful.key({ modkey }, "w", awful.tag.viewprev, { description = "view previous", group = "tag" }),
-    awful.key({ modkey }, "s", awful.tag.viewnext, { description = "view next", group = "tag" }),
+    awful.key({ modkey }, "e", awful.tag.viewprev, { description = "view previous", group = "tag" }),
+    awful.key({ modkey }, "d", awful.tag.viewnext, { description = "view next", group = "tag" }),
     awful.key({ altkey, "Control" }, "Up", awful.tag.viewprev, { description = "view previous", group = "tag" }),
     awful.key({ altkey, "Control" }, "Down", awful.tag.viewnext, { description = "view next", group = "tag" }),
     awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
@@ -24,10 +24,10 @@ local globalKeys = awful.util.table.join(
         awful.client.floating.toggle,
         { description = "toggle floating", group = "client" }
     ),
-    awful.key({ modkey }, "d", function()
+    awful.key({ modkey, "Control" }, "f", function()
         awful.client.focus.byidx(1)
     end, { description = "Focus next by index", group = "client" }),
-    awful.key({ modkey }, "a", function()
+    awful.key({ modkey, "Control" }, "s", function()
         awful.client.focus.byidx(-1)
     end, { description = "Focus previous by index", group = "client" }),
     awful.key({ modkey }, "r", function()
@@ -187,8 +187,11 @@ local globalKeys = awful.util.table.join(
         awful.client.movetoscreen,
         { description = "move window to next screen", group = "client" }
     ),
-    awful.key({ "Control", modkey }, "d", function()
+    awful.key({ altkey, modkey }, "f", function()
         awful.screen.focus_relative(1)
+    end),
+    awful.key({ altkey, modkey }, "s", function()
+        awful.screen.focus_relative(-1)
     end),
     -- Open default program for tag
     awful.key({ modkey }, "t", function()
@@ -215,7 +218,7 @@ local globalKeys = awful.util.table.join(
         awful.util.spawn_with_shell("killall -9 vlc")
     end),
     -- File Manager
-    awful.key({ modkey }, "e", function()
+    awful.key({ altkey, "Shift" }, "e", function()
         awful.util.spawn(apps.default.files)
     end, { description = "filebrowser", group = "hotkeys" })
 )

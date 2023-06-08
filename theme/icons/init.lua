@@ -29,4 +29,5 @@ return {
     thermometer = dir .. "/thermometer.svg",
     plus = dir .. "/plus.svg",
     git = dir .. "/git.svg",
+    ghost = dir .. "/ghost.svg",
 }

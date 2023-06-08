@@ -38,7 +38,7 @@ return {
         "flameshot",
         "synology-drive -minimized",
         "/usr/bin/variety",
-
+        "mictray",
         -- Set the appropraite screen outputs for my dual monitor setup.
         "xrandr --output DP-4 --mode 2560x1440 --rate 239.97 --primary --output DP-2 --right-of DP-4 --mode 2560x1440 --rate 143.97",
         -- Add applications that need to be killed between reloads

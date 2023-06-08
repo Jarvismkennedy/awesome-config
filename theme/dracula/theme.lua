@@ -78,6 +78,7 @@ local awesome_overrides = function(theme)
 
     theme.taglist_bg_empty = dracula.background
     theme.taglist_bg_occupied = dracula.background
+    theme.taglist_bg_focus = dracula.background
     theme.taglist_bg_urgent = "linear:0,0:"
         .. dpi(40)
         .. ",0:0,"
@@ -88,16 +89,16 @@ local awesome_overrides = function(theme)
         .. dracula.background
         .. ":1,"
         .. dracula.background
-    theme.taglist_bg_focus = "linear:0,0:"
-        .. dpi(40)
-        .. ",0:0,"
-        .. dracula.currentLine
-        .. ":0.08,"
-        .. dracula.currentLine
-        .. ":0.08,"
-        .. dracula.background
-        .. ":1,"
-        .. dracula.background
+    --theme.taglist_bg_focus = "linear:0,0:"
+    --    .. dpi(40)
+    --    .. ",0:0,"
+    --    .. dracula.currentLine
+    --    .. ":0.08,"
+    --    .. dracula.currentLine
+    --    .. ":0.08,"
+    --    .. dracula.background
+    --    .. ":1,"
+    --    .. dracula.background
 
     -- Tasklist
 

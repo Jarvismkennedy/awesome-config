@@ -46,9 +46,9 @@ end)
 
 -- Enable sloppy focus, so that focus follows mouse.
 
-_G.client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", { raise = true })
-end)
+--_G.client.connect_signal("mouse::enter", function(c)
+--    c:emit_signal("request::activate", "mouse_enter", { raise = true })
+--end)
 
 -- Make the focused window have a glowing border
 _G.client.connect_signal("focus", function(c)
@@ -57,3 +57,29 @@ end)
 _G.client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
 end)
+
+-- This doesn't work... why is it so difficult to auto start programs on certain tags??
+--local tags = awful.screen.focused().tags
+---- auto start programs in specific tabs
+--local function spawn_once(command, class, tag)
+--    -- create move callback
+--    local callback
+--    callback = function(c)
+--        if c.class == class then
+--            awful.client.movetotag(tag, c)
+--            awful.client.disconnect_signal("manage", callback)
+--        end
+--    end
+--    _G.client.connect_signal("manage", callback)
+--    -- now check if not already running!
+--    local findme = command
+--    local firstspace = findme:find(" ")
+--    if firstspace then
+--        findme = findme:sub(0, firstspace - 1)
+--    end
+--    -- finally run it
+--    awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. command .. ")")
+--end
+--spawn_once("kitty", "Kitty", tags[1])
+--spawn_once("firefox", "Firefox", tags[2])
+--spawn_once("slack", "Slack", tags[3])
