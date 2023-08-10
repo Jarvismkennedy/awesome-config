@@ -24,10 +24,10 @@ local globalKeys = awful.util.table.join(
         awful.client.floating.toggle,
         { description = "toggle floating", group = "client" }
     ),
-    awful.key({ modkey, "Control" }, "f", function()
+    awful.key({ modkey }, "l", function()
         awful.client.focus.byidx(1)
     end, { description = "Focus next by index", group = "client" }),
-    awful.key({ modkey, "Control" }, "s", function()
+    awful.key({ modkey }, "h", function()
         awful.client.focus.byidx(-1)
     end, { description = "Focus previous by index", group = "client" }),
     awful.key({ modkey }, "r", function()
@@ -61,9 +61,6 @@ local globalKeys = awful.util.table.join(
         end
     end, { description = "Switch to previous window", group = "client" }),
     -- Programms
-    awful.key({ modkey }, "l", function()
-        awful.spawn(apps.default.lock)
-    end, { description = "Lock the screen", group = "awesome" }),
     awful.key({ modkey }, "Print", function()
         awful.util.spawn_with_shell(apps.default.delayed_screenshot)
     end, {

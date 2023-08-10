@@ -51,6 +51,7 @@ local tags = {
 
 awful.layout.layouts = {
     awful.layout.suit.tile,
+    awful.layout.suit.tile.top,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.floating,

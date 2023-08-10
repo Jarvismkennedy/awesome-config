@@ -20,7 +20,7 @@ return {
         region_screenshot = "flameshot gui -p ~/Pictures",
         delayed_screenshot = "flameshot screen -p ~/Pictures -d 5000",
         browser = "firefox",
-        editor = "neovim", -- gui text editor
+        editor = "emacsclient -nca ''", -- gui text editor
         social = "slack",
         game = rofi_command,
         files = "thunar",
@@ -32,7 +32,7 @@ return {
         "nm-applet --indicator", -- wifi
         "pasystray", -- shows an audiocontrol applet in systray when installed.
         "numlockx on", -- enable numlock
-        "feh --bg-scale  '/home/jarvisk/wallpapers/eos_wallpapers_community/Endy_vector_satelliet.png'",
+        "feh --bg-fill  '/home/jarvisk/wallpapers/eos_wallpapers_community/Endy_vector_satelliet.png'",
         "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)", -- credential manager
         "xfce4-power-manager", -- Power manager
         "flameshot",
@@ -40,7 +40,7 @@ return {
         "/usr/bin/variety",
         "mictray",
         -- Set the appropraite screen outputs for my dual monitor setup.
-        "xrandr --output DP-4 --mode 2560x1440 --rate 239.97 --primary --output DP-2 --right-of DP-4 --mode 2560x1440 --rate 143.97",
+        "xrandr --output DP-4 --mode 2560x1440 --rate 239.97 --primary --output DP-2 --right-of DP-4 --mode 2560x1440 --rate 143.97 --rotate right",
         -- Add applications that need to be killed between reloads
         -- to avoid multipled instances, inside the awspawn script
         "~/.config/awesome/configuration/awspawn", -- Spawn "dirty" apps that can linger between sessions

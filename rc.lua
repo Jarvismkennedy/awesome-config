@@ -57,7 +57,7 @@ end)
 _G.client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
 end)
-
+os.execute("xset r rate 200 27")
 -- This doesn't work... why is it so difficult to auto start programs on certain tags??
 --local tags = awful.screen.focused().tags
 ---- auto start programs in specific tabs
