@@ -17,17 +17,17 @@ local function renderClient(client, mode)
     client.maximized_horizontal = false
     client.maximized_vertical = false
 
-    if client.rendering_mode == "maximized" then
-        client.border_width = 0
-        client.shape = function(cr, w, h)
-            gears.shape.rectangle(cr, w, h)
-        end
-    elseif client.rendering_mode == "tiled" then
+    -- if client.rendering_mode == "maximized" then
+    --     client.border_width = 0
+    --     client.shape = function(cr, w, h)
+    --         gears.shape.rectangle(cr, w, h)
+    --     end
+    -- elseif client.rendering_mode == "tiled" then
         client.border_width = beautiful.border_width
         -- client.shape = function(cr, w, h)
         --   gears.shape.rounded_rect(cr, w, h, 8)
         -- end
-    end
+    -- end
 end
 
 local changesOnScreenCalled = false

@@ -2,22 +2,22 @@ local filesystem = require("gears.filesystem")
 local mat_colors = require("theme.mat-colors")
 local theme_dir = filesystem.get_configuration_dir() .. "/theme"
 local dpi = require("beautiful").xresources.apply_dpi
-local dracula = {
-    background = "#282a36",
-    currentLine = "#44475a",
-    foreground = "#f8f8f2",
-    comment = "#6272a4",
-    cyan = "#8be9fd",
-    green = "#50fa7b",
-    orange = "#ffb86c",
-    pink = "#ff79c6",
-    purple = "#bd93f9",
-    red = "#ff5555",
-    yellow = "#f1fa8c",
+local theme_colors = {
+    background = "#24273a",
+    foreground = "#cad3f5",
+    border = "#494d64",
+    borderfocus = "#b7bdf8",
+    cyan = "#8bd5ca",
+    green = "#a6da95",
+    orange = "#f5a97f",
+    pink = "#f5bde6",
+    purple = "#c6a0f6",
+    red = "#ed8796",
+    yellow = "#eed49f",
 }
 
 local theme = {}
-theme.theme_colors = dracula
+theme.colors = theme_colors
 theme.icons = theme_dir .. "/icons/"
 theme.font = "JetBrainsMono Nerd Font 10"
 
@@ -44,17 +44,16 @@ local awesome_overrides = function(theme)
     theme.fg_urgent = "#CC9393"
     theme.bat_fg_critical = "#232323"
 
-    theme.bg_normal = dracula.background
+    theme.bg_normal = theme.colors.background
     theme.bg_focus = "#5a5a5a"
     theme.bg_urgent = "#3F3F3F"
-    theme.bg_systray = dracula.background
+    theme.bg_systray = theme.colors.background
 
     -- Borders
-
     theme.border_width = dpi(2)
-    theme.border_normal = dracula.comment
-    theme.border_focus = dracula.purple
-    theme.border_marked = "#CC9393"
+    theme.border_normal = theme.colors.border
+    theme.border_focus = theme.colors.borderfocus
+    theme.border_marked = theme.colors.border
 
     -- Menu
 
@@ -76,40 +75,29 @@ local awesome_overrides = function(theme)
 
     -- Taglist
 
-    theme.taglist_bg_empty = dracula.background
-    theme.taglist_bg_occupied = dracula.background
-    theme.taglist_bg_focus = dracula.background
+    theme.taglist_bg_empty = theme.colors.background
+    theme.taglist_bg_occupied = theme.colors.background
+    theme.taglist_bg_focus = theme.colors.background
     theme.taglist_bg_urgent = "linear:0,0:"
         .. dpi(40)
         .. ",0:0,"
-        .. dracula.pink
+        .. theme.colors.pink
         .. ":0.08,"
-        .. dracula.pink
+        .. theme.colors.pink
         .. ":0.08,"
-        .. dracula.background
+        .. theme.colors.background
         .. ":1,"
-        .. dracula.background
-    --theme.taglist_bg_focus = "linear:0,0:"
-    --    .. dpi(40)
-    --    .. ",0:0,"
-    --    .. dracula.currentLine
-    --    .. ":0.08,"
-    --    .. dracula.currentLine
-    --    .. ":0.08,"
-    --    .. dracula.background
-    --    .. ":1,"
-    --    .. dracula.background
+        .. theme.colors.background
 
     -- Tasklist
-
     theme.tasklist_font = "JetBrainsMono Nerd Font 8"
-    theme.tasklist_bg_normal = dracula.background
+    theme.tasklist_bg_normal = theme.colors.background
     theme.tasklist_bg_focus = "linear:0,0:0,"
         .. dpi(40)
         .. ":0,"
-        .. dracula.background
+        .. theme.colors.background
         .. ":0.95,"
-        .. dracula.background
+        .. theme.colors.background
         .. ":0.95,"
         .. theme.fg_normal
         .. ":1,"
@@ -120,11 +108,6 @@ local awesome_overrides = function(theme)
     theme.tasklist_fg_normal = "#AAAAAA"
 
     theme.icon_theme = "Papirus-Dark"
-
-    --Client
-    theme.border_width = dpi(2)
-    theme.border_focus = dracula.purple
-    theme.border_normal = dracula.background
 end
 return {
     theme = theme,

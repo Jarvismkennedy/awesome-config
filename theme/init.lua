@@ -1,7 +1,7 @@
-local gtable = require('gears.table')
--- local default_theme = require('theme.default-theme')
+local gtable = require("gears.table")
+--local theme = require("theme.default-theme")
 -- PICK THEME HERE
-local theme = require('theme.dracula.theme');
+local theme = require("theme.catppuccin.theme")
 
 local final_theme = {}
 --gtable.crush(final_theme, default_theme.theme)

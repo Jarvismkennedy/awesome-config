@@ -48,7 +48,7 @@ function max.arrange(p)
     return fmax(p, false)
 end
 function max.skip_gap(nclients, t) -- luacheck: no unused args
-    return true
+    return false
 end
 
 return max

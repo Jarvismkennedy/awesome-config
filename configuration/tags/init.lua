@@ -2,16 +2,16 @@ local awful = require("awful")
 local gears = require("gears")
 local icons = require("theme.icons")
 local apps = require("configuration.apps")
-local theme = require("theme.dracula.theme")
+local theme = require("theme.catppuccin.theme")
 
-local dots = gears.color.recolor_image(icons.circles, theme.theme.dracula.orange)
-local ghost_purple = gears.color.recolor_image(icons.ghost, theme.theme.dracula.purple)
-local ghost_pink = gears.color.recolor_image(icons.ghost, theme.theme.dracula.pink)
-local ghost_cyan = gears.color.recolor_image(icons.ghost, theme.theme.dracula.cyan)
-local ghost_red = gears.color.recolor_image(icons.ghost, theme.theme.dracula.red)
-local ghost_yellow = gears.color.recolor_image(icons.ghost, theme.theme.dracula.orange)
+local dots = gears.color.recolor_image(icons.circles, theme.theme.colors.orange)
+local ghost_purple = gears.color.recolor_image(icons.ghost, theme.theme.colors.purple)
+local ghost_pink = gears.color.recolor_image(icons.ghost, theme.theme.colors.pink)
+local ghost_cyan = gears.color.recolor_image(icons.ghost, theme.theme.colors.cyan)
+local ghost_red = gears.color.recolor_image(icons.ghost, theme.theme.colors.red)
+local ghost_yellow = gears.color.recolor_image(icons.ghost, theme.theme.colors.orange)
 local ghosts = { ghost_purple, ghost_pink, ghost_cyan, ghost_red, ghost_yellow }
-local focused = gears.color.recolor_image(icons.pacman, theme.theme.dracula.yellow)
+local focused = gears.color.recolor_image(icons.pacman, theme.theme.colors.yellow)
 
 local get_ghost = function(n)
     return ghosts[n]
@@ -63,8 +63,8 @@ awful.screen.connect_for_each_screen(function(s)
             icon = tag.icon,
             icon_only = true,
             layout = awful.layout.suit.tile,
-            gap_single_client = false,
-            gap = 4,
+            gap_single_client = true,
+            gap = 6,
             screen = s,
             defaultApp = tag.defaultApp,
             selected = i == 1,

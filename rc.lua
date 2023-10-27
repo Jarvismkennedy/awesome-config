@@ -4,6 +4,7 @@ local wibox = require("wibox")
 require("awful.autofocus")
 local beautiful = require("beautiful")
 
+awful.util.shell = "bash"
 -- Theme
 beautiful.init(require("theme"))
 awesome.set_preferred_icon_size(48)
